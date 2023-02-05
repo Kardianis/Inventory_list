@@ -14,7 +14,15 @@ function App() {
         <button className="btn btn-primary">Add</button>
       </form>
       <ul className="container text-left" style={{width:420}}>
-        <li>list name quantity</li>
+        <li className="d-flex space-between mb-1"
+        style={{ borderBottom: "1px solid #333"}}>
+        
+          name quantity
+          <div>
+            <button className="btn btn-sm">Edit</button>
+            <button className="btn btn-danger btn-sm">X</button>
+          </div>  
+        </li>
       </ul>
     </div>
   );
