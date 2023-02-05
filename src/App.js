@@ -1,15 +1,34 @@
 import './App.css';
+import { useEffect, useRef } from 'react';
 
 function App() {
+
+//Refs
+
+  let itemName = useRef();
+  useEffect(() =>{
+    itemName.current.focus();
+  },[] )
+  let itemQuantity = useRef();
+
   return (
     <div className="container">
       <h1 className="title text-center">Inventory List</h1>
       <form className="d-flex" style={{justyContent:"center"}}>
         <div className="form-group m-1">
-          <input type="text" placeholder="Item name" style={{border:"1px solid #7633f9"}}/>
+          <input 
+          type="text" 
+          placeholder="Item name" 
+          style={{border:"1px solid #7633f9"}}
+          ref={itemName}
+          />
         </div>
         <div className="form-group m-1">
-          <input type="text" placeholder="Item quantity" style={{border:"1px solid #7633f9"}}/>
+          <input 
+          type="text" 
+          placeholder="Item quantity" 
+          style={{border:"1px solid #7633f9"}}/>
+          ref={itemQuantity}
         </div>
         <button className="btn btn-primary">Add</button>
       </form>
