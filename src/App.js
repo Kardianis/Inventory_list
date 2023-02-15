@@ -42,6 +42,10 @@ function handleSubmit(event){
   setNewQuantity("");
 }
 
+function handleDelete(index){
+  window.confirm("delete item ?") && setItems(items.filter((item,i)=> i !== index));
+}
+
   return (
   <div className="container">
     <h1 className="title text-center">Inventory List</h1>
@@ -80,7 +84,7 @@ function handleSubmit(event){
           {item.item} ({item.quantity})
           <div>
             <button className="btn btn-sm">Edit</button>
-            <button className="btn btn-danger btn-sm">X</button>
+            <button className="btn btn-danger btn-sm" onClick={() => handleDelete(index)}>X</button>
           </div>
         </li>
         ))}
