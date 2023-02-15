@@ -46,6 +46,13 @@ function handleDelete(index){
   window.confirm("delete item ?") && setItems(items.filter((item,i)=> i !== index));
 }
 
+function handleEdit(index){
+  setCurrentIndex(index)
+  const { item, quantity } = items[index];
+  setNewItem(item);
+  setNewQuantity(quantity);
+}
+
   return (
   <div className="container">
     <h1 className="title text-center">Inventory List</h1>
@@ -71,7 +78,7 @@ function handleDelete(index){
         onChange={handleQuantityChange}
         />
       </div>      
-        <button className="btn btn-primary" type="submit">Save</button>
+        <button className="btn btn-primary" type="submit">{ currentIndex >= 0 ?  "Save" : "Add"}</button>
     </form>
     <ul className="container text-left" 
       style={{ width:420 }}>
@@ -83,7 +90,7 @@ function handleDelete(index){
         style={{borderBottom:"1px solid #333"}}>
           {item.item} ({item.quantity})
           <div>
-            <button className="btn btn-sm">Edit</button>
+            <button className="btn btn-sm" onClick={() => handleEdit(index)}>Edit</button>
             <button className="btn btn-danger btn-sm" onClick={() => handleDelete(index)}>X</button>
           </div>
         </li>
